@@ -1,0 +1,53 @@
+.mypage{
+    width:100%;
+}
+.my-infowrap{
+    display:flex;
+    width:100%;
+}
+.my-infowrap img{
+    width:140px;
+    height:140px;
+    white-space: nowrap;
+    border-radius:100%;
+}
+.user-section{
+    display:flex;
+    flex-direction: column;
+    margin-left:16px;
+    color:#f0f0f0;
+    gap:10px;
+}
+.user-name{
+    font-size:36px;
+    font-weight:bold;
+}
+.user-more{
+    display:flex;
+    color:#aaa;
+    font-size:12px;
+}
+.user-more span{
+    display:block;
+    width:120px;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.user-more button{
+    color:#f0f0f0;
+    font-size:12px;
+    white-space: nowrap;
+}
+.btn-rd-dgrey{
+    border-radius:20px;
+    width:108px;
+    height:36px;
+    line-height:36px;
+    background:#343434;
+    font-size:14px;
+    color:#fff;
+}
+.btn-rd-dgrey + .btn-rd-dgrey{
+    margin-left:10px
+}
