@@ -1,157 +1,118 @@
 import React from "react"
-import Video from "./Video"
-import Mypage from "./Mypage"
-import Blank from "./Blank"
+import Container from "./Container"
 import './style.css'
-import Thum from './Video/asset/thum.png'
-import ThumProfile from './Video/asset/thum2.jpg'
+import icoHome from './assets/home.svg'
+import icoHomeAct from './assets/home-fill.svg'
+import icoShorts from './assets/library.svg'
+import icoShortsAct from './assets/library-fill.svg'
+import icoSubc from './assets/yours.svg'
+import icoSubcAct from './assets/yours-fill.svg'
+import icoMusic from './assets/premium.svg'
+import icoMusicAct from './assets/premium-fill.svg'
+import icoMypage from './assets/settings.svg'
+import icoMypageAct from './assets/settings-fill.svg'
+import icoHistory from './assets/history.svg'
+import icoHistoryAct from './assets/history-fill.svg'
+import icoLive from './assets/live.svg'
+import icoLiveAct from './assets/live-fill.svg'
+import icoVideo from './assets/liked.svg'
+import icoVideoAct from './assets/liked-fill.svg'
+import icoLater from './assets/sports.svg'
+import icoLaterAct from './assets/sports-fill.svg'
+import useNavIndex from "./model/useNavIndex"
 
 const Page = (props) => {
+    const [navIndex, setNavIndex, activeNavIndex] = useNavIndex()
     const {isNavOpen} = props
-    const [navIndex, setNavIndex] = React.useState(0)
-    const navdef = ["홈", "Shorts", "구독", "Youtube Music", "내 페이지"]
-    const navactive = ["시청 기록", "재생목록", "내 동영상", "내 영화", "나중에 볼 동영상"]
-    let videoitems = [
-        {
-        id:0,
-        title:"1𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
-        username:"때껄룩",
-        views:"170",
-        date:"4개월 전",
-        imgthumurl:Thum,
-        imgprofile:ThumProfile,
-        time:"1:50:37"
-        },
-        {
-        id:1,
-        title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
-        username:"때껄룩",
-        views:"170",
-        date:"4개월 전",
-        imgthumurl:Thum,
-        imgprofile:ThumProfile,
-        time:"50:37"
-        },
-        {
-        id:2,
-        title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
-        username:"때껄룩",
-        views:"170",
-        date:"4개월 전",
-        imgthumurl:Thum,
-        imgprofile:ThumProfile,
-        time:"1:50:37"
-        },
-        {
-        id:3,
-        title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
-        username:"때껄룩",
-        views:"170",
-        date:"4개월 전",
-        imgthumurl:Thum,
-        imgprofile:ThumProfile,
-        time:"1:50:37"
-        },
-        {
-        id:4,
-        title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
-        username:"때껄룩",
-        views:"170",
-        date:"4개월 전",
-        imgthumurl:Thum,
-        imgprofile:ThumProfile,
-        time:"1:50:37"
-        },
-        {
-        id:5,
-        title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
-        username:"때껄룩",
-        views:"170",
-        date:"4개월 전",
-        imgthumurl:Thum,
-        imgprofile:ThumProfile,
-        time:"1:50:37"
-        },
-        {
-        id:6,
-        title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
-        username:"때껄룩",
-        views:"170",
-        date:"4개월 전",
-        imgthumurl:Thum,
-        imgprofile:ThumProfile,
-        time:"1:50:37"
-        },
-        {
-        id:7,
-        title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
-        username:"때껄룩",
-        views:"170",
-        date:"4개월 전",
-        imgthumurl:Thum,
-        imgprofile:ThumProfile,
-        time:"1:50:37"
-        },
-        {
-        id:8,
-        title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
-        username:"때껄룩",
-        views:"170",
-        date:"4개월 전",
-        imgthumurl:Thum,
-        imgprofile:ThumProfile,
-        time:"1:50:37"
-        },
-        {
-        id:9,
-        title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
-        username:"때껄룩",
-        views:"170",
-        date:"4개월 전",
-        imgthumurl:Thum,
-        imgprofile:ThumProfile,
-        time:"1:50:37"
-        },
-        {
-        id:10,
-        title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
-        username:"때껄룩",
-        views:"170",
-        date:"4개월 전",
-        imgthumurl:Thum,
-        imgprofile:ThumProfile,
-        time:"1:50:37"
-        },
-        {
-        id:11,
-        title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
-        username:"때껄룩",
-        views:"170",
-        date:"4개월 전",
-        imgthumurl:Thum,
-        imgprofile:ThumProfile,
-        time:"1:50:37"
-        },
-    ]
     
+    const navdef = [
+        {
+            title : "홈",
+            classname: "home",
+            imgdef : icoHome,
+            imgactive : icoHomeAct,
+            navigate : "/home?page=1",
+        },
+        {
+            title : "Shorts",
+            classname:"shorts",
+            imgdef :icoShorts,
+            imgactive : icoShortsAct,
+            navigate : "/shorts",
+        },
+        {
+            title : "구독",
+            classname:"subscription",
+            imgdef : icoSubc,
+            imgactive : icoSubcAct,
+            navigate : null,
+        },
+        {
+            title : "Youtube Music",
+            classname: "music",
+            imgdef : icoMusic,
+            imgactive : icoMusicAct,
+            navigate : null,
+        },
+        {
+            title : "내 페이지",
+            classname: "mypage",
+            imgdef : icoMypage,
+            imgactive : icoMypageAct,
+            navigate : '/mypage',
+        }
+    ]
+    const navactive = [
+        {
+            title : "시청 기록",
+            classname : "history",
+            imgdef : icoHistory,
+            imgactive : icoHistoryAct
+        },
+        {
+            title : "재생목록",
+            classname : "playlist",
+            imgdef : icoLive,
+            imgactive : icoLiveAct
+        },
+        {
+            title : "내 동영상",
+            classname : "myvideo",
+            imgdef : icoVideo,
+            imgactive : icoVideoAct
+        },
+        {
+            title : "나중에 볼 동영상",
+            classname : "latervideo",
+            imgdef : icoLater,
+            imgactive : icoLaterAct
+        }
+    ]
+
     return (
         <>
         <nav className={isNavOpen ? "nav active" : "nav"}>
             {navdef.map((elem, idx) => 
-                <button className={navIndex === idx ? "btn-nav-menu active" : "btn-nav-menu"}  key={idx} onClick={() => setNavIndex(idx)}>
-                    <span>{elem}</span>  
+                <button className={navIndex === idx ? `btn-nav-menu ${elem.classname} active` : `btn-nav-menu ${elem.classname}`} 
+                        key={idx}  
+                        onClick={() => activeNavIndex(idx, elem.navigate)}>
+                    {navIndex === idx ? <img src={elem.imgactive} alt="" /> : <img src={elem.imgdef} alt="" />}
+                    <span>{elem.title}</span>  
                 </button>
             )}
-            {isNavOpen ? (
-                <>{navactive.map((elem, idx) =><button className="btn-nav-menu" key={idx}><span>{elem}</span></button>)}</>
-            ):(null)}
+            {isNavOpen && (
+                <>
+                {navactive.map((elem, idx) =>
+                    <button className={`btn-nav-menu ${elem.classname}`} key={idx}>
+                         {navIndex === idx ? <img src={elem.imgactive} alt="" /> : <img src={elem.imgdef} alt="" />}
+                        <span>{elem.title}</span>
+                    </button>
+                )}
+                </>
+            )}
         </nav>
         <main className={isNavOpen ? "container active" : "container"}>
-            {navIndex === 0 && videoitems.map((elem, idx) => <Video key={idx} videodata={elem}/>)}
-            {navIndex === 1 && <Blank/>}
-            {navIndex === 2 && <Blank/>}
-            {navIndex === 3 && <Blank/>}
-            {navIndex === 4 && <Mypage/>}
+            <Container setNavInde={setNavIndex}></Container>
         </main>
         </>
     )

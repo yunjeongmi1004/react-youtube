@@ -1,30 +1,286 @@
 import React from "react"
+import Item from "./ui/Item"
 import './style.css'
+import {useNavigate , useSearchParams} from "react-router-dom"
+import thumdata from "./assets/thum.jpg"
 
-const Video = (props) => {
-  const {videodata} = props
-  const [isHovering, setIsHovering] = React.useState(false) 
+const Video = () => {
+
+    const navigate = useNavigate()
+    const [searchParam, setSearchParam] = useSearchParams()
+
+    const videoitems = [
+      {
+      id:0,
+      title:"1𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:1,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"50:37"
+      },
+      {
+      id:2,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+    imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:3,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+    imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:4,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+    imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:5,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+    imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:6,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+    imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:7,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+    imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:8,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+    imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:9,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+    imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:10,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+    imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:11,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+    imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:12,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:13,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:14,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:15,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:16,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:17,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:18,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:19,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:20,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:21,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:22,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:23,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"1:50:37"
+      },
+      {
+      id:24,
+      title:"𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 도입부가 너무 좋아 미쳐버린 팝송만 모아봤어요 | 제발 한번만 들어주세요",
+      username:"때껄룩",
+      views:"170",
+      date:"4개월 전",
+      imgthumurl: thumdata,
+      imgprofile: thumdata,
+      time:"1:50:37"
+      },
+    ]
+    const totalPage = Math.ceil(videoitems.length/10)
+    const pageIndex = parseInt(searchParam.get("page"))
+    console.log(typeof pageIndex)
+    const currentPage = videoitems.slice((pageIndex - 1) * 10, pageIndex * 10)
+
 
     return(
-      <div className="video-box" onMouseOver={() => setIsHovering(true)} onMouseOut={() => setIsHovering(false)}>
-        <div className="video-thum">
-            <img src={videodata.imgthumurl} alt="" />
-            {isHovering ? (<span className="video-time">{videodata.time}</span>) : null}
+      <>
+        <div className="video-wrap">
+          {[...Array(totalPage)].map((elem, idx) => {
+            return (pageIndex === idx + 1 && currentPage.map((elem) =><Item key={elem.id} videodata={elem}/>))
+          })}
         </div>
-        <div className="video-info">
-          <div className="video-profile"><img src={videodata.imgprofile} alt="" /></div>
-          <div className="video-text">
-              <p className="text-type1">{videodata.title}</p>
-              <p className="text-type2">{videodata.username}</p>
-              <div className="text-list">
-                  <span>조회수 {videodata.views}만회</span>
-                  <span>{videodata.date}</span>
-              </div>
-          </div>
+        <div className="paging">
+           {[...Array(totalPage)].map((elem, idx) => {
+              return (<button className={pageIndex === idx + 1 ? 'active' : null} key={idx} onClick={() => navigate(`/home?page=${idx + 1}`)}>{idx + 1}</button>)
+           })}
         </div>
-      </div>
+      </>
     )
 }
-
 
 export default Video

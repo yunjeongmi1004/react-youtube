@@ -1,7 +1,8 @@
 import React from "react"
 import Header from "./Header"
 import Page from "../page"
-import "../app/style.css"
+import './styles/global.css'
+import './styles/reset.css'
 
 const App = () => {
   const [isNavOpen, setIsNavOpen] = React.useState(false)
