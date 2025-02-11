@@ -1,13 +1,13 @@
 import React from "react"
 import Item from "./ui/Item"
-import './style.css'
+import s from "./style"
 import {useNavigate , useSearchParams} from "react-router-dom"
 import thumdata from "./assets/thum.jpg"
 
 const Video = () => {
 
     const navigate = useNavigate()
-    const [searchParam, setSearchParam] = useSearchParams()
+    const [searchParam] = useSearchParams()
 
     const videoitems = [
       {
@@ -263,22 +263,26 @@ const Video = () => {
     ]
     const totalPage = Math.ceil(videoitems.length/10)
     const pageIndex = parseInt(searchParam.get("page"))
-    console.log(typeof pageIndex)
+    // console.log(typeof pageIndex)
     const currentPage = videoitems.slice((pageIndex - 1) * 10, pageIndex * 10)
+    const prevPage = pageIndex - 1
+    const nextPage = pageIndex + 1
 
 
     return(
       <>
-        <div className="video-wrap">
+        <s.VideoWrap>
           {[...Array(totalPage)].map((elem, idx) => {
             return (pageIndex === idx + 1 && currentPage.map((elem) =><Item key={elem.id} videodata={elem}/>))
           })}
-        </div>
-        <div className="paging">
-           {[...Array(totalPage)].map((elem, idx) => {
-              return (<button className={pageIndex === idx + 1 ? 'active' : null} key={idx} onClick={() => navigate(`/home?page=${idx + 1}`)}>{idx + 1}</button>)
-           })}
-        </div>
+        </s.VideoWrap>
+        <s.Paging>
+            { pageIndex > 1 && <s.BtnPrev className="prev" onClick={() => navigate(`/home?page=${prevPage}`)}>이전</s.BtnPrev> }
+            {[...Array(totalPage)].map((elem, idx) => {
+                return (<s.BtnNumber className={pageIndex === idx + 1 ? 'active' : null} key={idx} onClick={() => navigate(`/home?page=${idx + 1}`)}>{idx + 1}</s.BtnNumber>)
+            })}
+            {pageIndex < totalPage && <s.BtnNext className="next" onClick={() => navigate(`/home?page=${nextPage}`)}>다음</s.BtnNext>}
+        </s.Paging>
       </>
     )
 }

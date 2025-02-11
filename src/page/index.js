@@ -1,14 +1,13 @@
 import React from "react"
-import Container from "./Container"
-import './style.css'
+import s from "./style"
+import Video from "./Video"
+import Mypage from "./Mypage"
+import Shorts from "./Shorts"
+import {Routes, Route, Navigate , useLocation} from "react-router-dom"
 import icoHome from './assets/home.svg'
 import icoHomeAct from './assets/home-fill.svg'
 import icoShorts from './assets/library.svg'
 import icoShortsAct from './assets/library-fill.svg'
-import icoSubc from './assets/yours.svg'
-import icoSubcAct from './assets/yours-fill.svg'
-import icoMusic from './assets/premium.svg'
-import icoMusicAct from './assets/premium-fill.svg'
 import icoMypage from './assets/settings.svg'
 import icoMypageAct from './assets/settings-fill.svg'
 import icoHistory from './assets/history.svg'
@@ -19,12 +18,11 @@ import icoVideo from './assets/liked.svg'
 import icoVideoAct from './assets/liked-fill.svg'
 import icoLater from './assets/sports.svg'
 import icoLaterAct from './assets/sports-fill.svg'
-import useNavIndex from "./model/useNavIndex"
+import useNavopenAtom from "../shared/model/useNavopenAtom"
+const Page = () => {
 
-const Page = (props) => {
-    const [navIndex, setNavIndex, activeNavIndex] = useNavIndex()
-    const {isNavOpen} = props
-    
+    const [isNavOpen] = useNavopenAtom()
+    const location = useLocation()
     const navdef = [
         {
             title : "홈",
@@ -39,20 +37,6 @@ const Page = (props) => {
             imgdef :icoShorts,
             imgactive : icoShortsAct,
             navigate : "/shorts",
-        },
-        {
-            title : "구독",
-            classname:"subscription",
-            imgdef : icoSubc,
-            imgactive : icoSubcAct,
-            navigate : null,
-        },
-        {
-            title : "Youtube Music",
-            classname: "music",
-            imgdef : icoMusic,
-            imgactive : icoMusicAct,
-            navigate : null,
         },
         {
             title : "내 페이지",
@@ -91,30 +75,31 @@ const Page = (props) => {
 
     return (
         <>
-        <nav className={isNavOpen ? "nav active" : "nav"}>
-            {navdef.map((elem, idx) => 
-                <button className={navIndex === idx ? `btn-nav-menu ${elem.classname} active` : `btn-nav-menu ${elem.classname}`} 
-                        key={idx}  
-                        onClick={() => activeNavIndex(idx, elem.navigate)}>
-                    {navIndex === idx ? <img src={elem.imgactive} alt="" /> : <img src={elem.imgdef} alt="" />}
-                    <span>{elem.title}</span>  
-                </button>
-            )}
+        
+        <s.Nav isNavOpen={isNavOpen}>
+            {navdef.map((elem) => 
+                <s.NavStyle to={elem.navigate} key={elem.title} isNavOpen={isNavOpen} active={location.pathname === `/${elem.classname}`}>
+                    <img src={`${location.pathname === `/${elem.classname}` ? elem.imgactive : elem.imgdef}`} alt="" />
+                    <s.NavTitle isNavOpen={isNavOpen}>{elem.title}</s.NavTitle>  
+                </s.NavStyle>
+            )} 
             {isNavOpen && (
                 <>
-                {navactive.map((elem, idx) =>
-                    <button className={`btn-nav-menu ${elem.classname}`} key={idx}>
-                         {navIndex === idx ? <img src={elem.imgactive} alt="" /> : <img src={elem.imgdef} alt="" />}
-                        <span>{elem.title}</span>
-                    </button>
-                )}
+                {navactive.map((elem) =><s.BtnNavMenu key={elem.title} className={elem.classname}>{elem.title}</s.BtnNavMenu>)}
                 </>
             )}
-        </nav>
-        <main className={isNavOpen ? "container active" : "container"}>
-            <Container setNavInde={setNavIndex}></Container>
-        </main>
+        </s.Nav>
+        <s.Main isNavOpen={isNavOpen}>
+            <Routes>
+                <Route path="/" element={<Navigate to="/home?page=1" replace />}/>
+                <Route path="/home" element={<Video />} />  
+                <Route path="/shorts" element={<Shorts />} />
+                <Route path="/mypage" element={<Mypage />} />
+            </Routes>
+        </s.Main>
+      
         </>
+
     )
 }
 

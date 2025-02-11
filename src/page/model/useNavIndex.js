@@ -4,10 +4,14 @@ import { useNavigate } from "react-router-dom"
 const useNavIndex = () => {
     const [navIndex, setNavIndex] = React.useState(0)
     const navigate = useNavigate()
+
+
     const activeNavIndex = (idx, navIdx) => {
-        setNavIndex(idx)
+        setNavIndex(navIndex => !navIndex)
         if(navIdx !== null){
             navigate(navIdx)
+        
+            
         }else{
             alert('준비중')
         }

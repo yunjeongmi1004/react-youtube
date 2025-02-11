@@ -1,3 +1,5 @@
-# FSD Pattern(react youtube)
+# youtube react clone 
 
-## `npm start`
+## npm install
+
+## npm start
