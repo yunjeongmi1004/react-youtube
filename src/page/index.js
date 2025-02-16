@@ -3,6 +3,8 @@ import s from "./style"
 import Video from "./Video"
 import Mypage from "./Mypage"
 import Shorts from "./Shorts"
+import SignUp from "./SignUp"
+import Login from "./Login"
 import {Routes, Route, Navigate , useLocation} from "react-router-dom"
 import icoHome from './assets/home.svg'
 import icoHomeAct from './assets/home-fill.svg'
@@ -19,6 +21,7 @@ import icoVideoAct from './assets/liked-fill.svg'
 import icoLater from './assets/sports.svg'
 import icoLaterAct from './assets/sports-fill.svg'
 import useNavopenAtom from "../shared/model/useNavopenAtom"
+import AccountDetail from "./Login/AccountDetail"
 const Page = () => {
 
     const [isNavOpen] = useNavopenAtom()
@@ -75,26 +78,28 @@ const Page = () => {
 
     return (
         <>
-        
-        <s.Nav isNavOpen={isNavOpen}>
+        <s.Nav $isnavopen={isNavOpen}>
             {navdef.map((elem) => 
-                <s.NavStyle to={elem.navigate} key={elem.title} isNavOpen={isNavOpen} active={location.pathname === `/${elem.classname}`}>
+                <s.NavStyle to={elem.navigate} key={elem.title} $isnavopen={isNavOpen}>
                     <img src={`${location.pathname === `/${elem.classname}` ? elem.imgactive : elem.imgdef}`} alt="" />
-                    <s.NavTitle isNavOpen={isNavOpen}>{elem.title}</s.NavTitle>  
+                    <s.NavTitle $isnavopen={isNavOpen}>{elem.title}</s.NavTitle>  
                 </s.NavStyle>
             )} 
             {isNavOpen && (
                 <>
-                {navactive.map((elem) =><s.BtnNavMenu key={elem.title} className={elem.classname}>{elem.title}</s.BtnNavMenu>)}
+                {navactive.map((elem) =><s.BtnNavMenu key={elem.title}>{elem.title}</s.BtnNavMenu>)}
                 </>
             )}
         </s.Nav>
-        <s.Main isNavOpen={isNavOpen}>
+        <s.Main $isnavopen={isNavOpen}>
             <Routes>
                 <Route path="/" element={<Navigate to="/home?page=1" replace />}/>
                 <Route path="/home" element={<Video />} />  
                 <Route path="/shorts" element={<Shorts />} />
                 <Route path="/mypage" element={<Mypage />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/account-detail" element={<AccountDetail />} />
             </Routes>
         </s.Main>
       

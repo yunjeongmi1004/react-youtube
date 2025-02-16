@@ -277,11 +277,11 @@ const Video = () => {
           })}
         </s.VideoWrap>
         <s.Paging>
-            { pageIndex > 1 && <s.BtnPrev className="prev" onClick={() => navigate(`/home?page=${prevPage}`)}>이전</s.BtnPrev> }
+            { pageIndex > 1 && <s.BtnPrev onClick={() => navigate(`/home?page=${prevPage}`)}>이전</s.BtnPrev> }
             {[...Array(totalPage)].map((elem, idx) => {
-                return (<s.BtnNumber className={pageIndex === idx + 1 ? 'active' : null} key={idx} onClick={() => navigate(`/home?page=${idx + 1}`)}>{idx + 1}</s.BtnNumber>)
+                return (<s.BtnNumber $pageindex={pageIndex === idx + 1} key={idx} onClick={() => navigate(`/home?page=${idx + 1}`)}>{idx + 1}</s.BtnNumber>)
             })}
-            {pageIndex < totalPage && <s.BtnNext className="next" onClick={() => navigate(`/home?page=${nextPage}`)}>다음</s.BtnNext>}
+            {pageIndex < totalPage && <s.BtnNext onClick={() => navigate(`/home?page=${nextPage}`)}>다음</s.BtnNext>}
         </s.Paging>
       </>
     )

@@ -1,5 +1,5 @@
 import React from "react"
-import './style.css'
+import s from "./style"
 import useShortsbtnEvent from "./model/useShortsbtnEvent"
 
 const Shorts = () => {
@@ -38,18 +38,17 @@ const Shorts = () => {
     ]
     return(
         <>
-        <div className="player-wrap">
-            <div className="player-box">
-            </div>
-            <div className="player-btns">
+        <s.PlayerWrap className="player-wrap">
+            <s.PlayerBox className="player-box"></s.PlayerBox>
+            <s.PlayerBtns className="player-btns">
                 {utilListdata.map((elem, idx) => 
-                    <button className="btn-shorts" key={idx} onClick={elem.event}>
-                        <span className={`btn-round ${elem.icon}`}></span>
+                    <s.BtnShorts className="btn-shorts" key={idx} onClick={elem.event}>
+                        <s.BtnRound></s.BtnRound>
                         <em>{elem.content}</em>
-                    </button>
+                    </s.BtnShorts>
                 )}
-            </div>
-        </div>
+            </s.PlayerBtns>
+        </s.PlayerWrap>
         </>
     )
 }

@@ -16,13 +16,7 @@ const style = {
             width:30px;
             height:30px;
             border-radius:100%;
-            color:var(--text-color);
             overflow:hidden;
-        }
-
-        & button.active{
-            background:var(--text-color);
-            color:var(--background-color);
         }
     `,
     "BtnPrev" : styled.button`
@@ -33,6 +27,8 @@ const style = {
     `,
     "BtnNumber" : styled.button`
         border:1px solid var(--border-line);
+        color: ${(props) => props.$pageindex  ? props.theme.borderline : props.theme.textcolor};
+        background : ${(props) => props.$pageindex  ?  props.theme.textcolor : props.theme.borderline}
     `
 
 }

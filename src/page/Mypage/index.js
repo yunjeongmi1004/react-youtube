@@ -1,13 +1,13 @@
 import React from "react"
 import useTabIndex from "./model/useTabIndex"
-import './style.css'
+import s from "./style"
 
 const Mypage = () => {
 
     const [currentTab, activeTabIndex] = useTabIndex()
     
     const myInfoData = {
-        imgprofile:"https://i.namu.wiki/i/rl12tzH0S7tTU2h7Z4-54cojZN8gKz4EKhnyRwolzlYzvdQesg4lqHLfSweGAu2WZGQHdIq3Iyjydu_k248Ozs5OsY-FszfmwGgifb8mSndMIFapax5ctZ30r4d8v9vs7_qwwMhzEcVRblwqXiU0gQ.webp",
+        imgprofile:"",
         username:"mingo",
         usertinfo:"mingo",
       }    
@@ -17,33 +17,33 @@ const Mypage = () => {
     ]
 
     return(
-        <div className="mypage">
-            <div className="my-infowrap">
+        <s.Mypage>
+            <s.MyinfoWrap>
                 <img src={myInfoData.imgprofile} alt=""/>
-                <div className="user-section">
-                    <strong className="user-name">{myInfoData.username}</strong>
-                    <span className="user-tinfo">@{myInfoData.usertinfo}</span>
-                    <div className="user-more">
-                        <span>채널 자세히 알아보기채널 자세히 알아보기</span>
-                        <button>더보기</button>
-                    </div>
-                    <div>
-                        <button className="btn-rd-dgrey">채널 맞춤설정</button>
-                        <button className="btn-rd-dgrey">동영상 관리</button>
-                    </div>
-                </div>
-            </div>
+                <s.UserSection>
+                    <s.UserName>{myInfoData.username}</s.UserName>
+                    <s.UserTinfo>@{myInfoData.usertinfo}</s.UserTinfo>
+                    <s.UserMore>
+                        <s.UserMoreText>채널 자세히 알아보기채널 자세히 알아보기</s.UserMoreText>
+                        <s.UserMoreBtn>더보기</s.UserMoreBtn>
+                    </s.UserMore>
+                    <s.UserBtns>
+                        <s.BtnRdDgrey>채널 맞춤설정</s.BtnRdDgrey>
+                        <s.BtnRdDgrey>동영상 관리</s.BtnRdDgrey>
+                    </s.UserBtns>
+                </s.UserSection>
+            </s.MyinfoWrap>
        
-            <ul className="tab-list">
+            <s.TabList>
                 {myTabData.map((elem,idx) => (
-                    <li className={currentTab === idx ? "active" : "" } onClick={() => activeTabIndex(idx)} key={idx} >{elem.name}</li>
+                    <s.TabListCont $currenttab={currentTab === idx} onClick={() => activeTabIndex(idx)} key={idx} >{elem.name}</s.TabListCont>
                 ))}
-            </ul>
-            <div className="tab-content">
+            </s.TabList>
+            <s.TabContent>
                 {myTabData[currentTab].content}
-            </div>
+            </s.TabContent>
         
-        </div>
+        </s.Mypage>
  
     )
 }

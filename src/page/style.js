@@ -1,8 +1,6 @@
 import { NavLink } from "react-router-dom"
 import styled, { css } from "styled-components"
 
-import arrowright from "./assets/arrowright.svg"
-
 const style = {
     "NavStyle" : styled(NavLink)`
         position:relative;
@@ -18,7 +16,7 @@ const style = {
         }
 
         
-        ${props => props.isNavOpen
+        ${props => props.$isnavopen
           ? css`
             flex-direction:row;
             width:calc(100% - 10px);
@@ -34,7 +32,7 @@ const style = {
             `
         }
 
-        ${props => props.isNavOpen &&props.active && css`
+        ${props => props.$isnavopen && props.active && css`
             background-color:${props => props.theme.backgroundrgb};
         `}
     `,
@@ -63,7 +61,7 @@ const style = {
         white-space: normal;
  
 
-        ${props => props.isNavOpen
+        ${props => props.$isnavopen
           ? css`
                 text-align:left;
                 font-size:14px;
@@ -79,7 +77,7 @@ const style = {
         top:56px;
         display:block;
         padding:20px 0 20px 10px;
-        ${props => props.isNavOpen
+        ${props => props.$isnavopen
           ? css`
               width: 240px;
             `
@@ -98,7 +96,7 @@ const style = {
         margin-top:56px;
         padding:20px;
 
-        ${props => props.isNavOpen
+        ${props => props.$isnavopen
           && css`
             width:calc(100% - 240px);
             margin-left:240px;

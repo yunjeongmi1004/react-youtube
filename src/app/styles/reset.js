@@ -1,12 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset'
 
-const GlobalStyles = createGlobalStyle`
-${reset}
-body{
-    color:  ${props => props.theme.textcolor};
-    background-color: ${props  => props.theme.backgroundcolor}
-},
+const ResetStyles = createGlobalStyle`
   html,
   body,
   h1,
@@ -153,6 +147,9 @@ body{
   input[type="date"]:valid::before {
     display: none;
   }
+img{
+vertical-align:top;
+}
 `
 
-export default GlobalStyles
+export default ResetStyles

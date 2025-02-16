@@ -1,4 +1,5 @@
 import React from "react"
+import {useNavigate } from "react-router-dom"
 import useNavopenAtom from "../../shared/model/useNavopenAtom"
 import s from "./style"
 import allmenu from './assets/btn-allmenu.png'
@@ -7,11 +8,12 @@ import profile from './assets/thum.jpg'
 
 const Header = () => {
 
-    const [, setIsNavOpen] =  useNavopenAtom()
+    const [, toggleIsNavOpen] =  useNavopenAtom()
+    const navigate = useNavigate()
 
     return(
     <s.Header>
-        <s.BtnAllmenu onClick ={ () => setIsNavOpen(isNavOpen => !isNavOpen)}>
+        <s.BtnAllmenu onClick ={toggleIsNavOpen}>
             <img src={allmenu} alt="전체메뉴" />
         </s.BtnAllmenu>
         <s.H1><img src={logo} alt="youtu premium" /></s.H1>
@@ -26,6 +28,8 @@ const Header = () => {
         <s.BtnMyprofile>
             <img src={profile} alt="" />
         </s.BtnMyprofile>
+        <button onClick={() => navigate("/signup")}>회원가입</button>
+        <button onClick={() => navigate("/login")}>로그인</button>
     </s.Header>
     )
 }
