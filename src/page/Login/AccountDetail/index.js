@@ -10,7 +10,7 @@ const AccountDetail = () => {
     const [backendState, setbackendState] = useState(null)
 
     const getAccountDetail = async () => {
-        const response = await fetch(`http://3.39.66.6:8000/account/`,{})
+        const response = await fetch(`/account/`,{})
         const result = await response.json()
 
         switch (response.status) {
