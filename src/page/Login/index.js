@@ -12,7 +12,7 @@ const Login =  () => {
     const navigate = useNavigate();
 
     const loginEvent = async () => {
-    const response = await fetch("http://3.39.66.6:8000/account/login", {
+    const response = await fetch("/account/login", {
         "method" : "POST",
         "headers" : {
             "Content-Type" : "application/json"
